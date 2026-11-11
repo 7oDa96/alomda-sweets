@@ -107,21 +107,23 @@
       font-size: 14px;
     }
 
-    .hero {
-      min-height: 390px;
-      padding: 65px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(196,154,82,.17), transparent 25%),
-        radial-gradient(circle at 85% 80%, rgba(104,27,43,.09), transparent 25%),
-        linear-gradient(135deg, #fff8e9, #f4e5ce);
-    }
+   .hero {
+  min-height: 430px;
+  padding: 65px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 
+  background:
+    linear-gradient(
+      rgba(65, 13, 25, 0.62),
+      rgba(65, 13, 25, 0.68)
+    ),
+    url('hero-dessert.jpg') center/cover no-repeat;
+}
     .hero::before,
     .hero::after {
       content: "✦";
@@ -471,18 +473,27 @@
     حلويات العمدة — حلاوة الطعم في كل مناسبة
   </div>
 
-  <header>
-    <div class="header-inner">
-      <div class="brand">
-       
+ 
+<header>
+  <div class="header-inner">
+
+    <div class="brand">
       <div>
         <div class="brand-name">حلويات العمدة</div>
         <div class="brand-subtitle">أصالة الطعم... وحلاوة اللمة</div>
       </div>
-
-      <div class="header-note">أهلاً بيكم في عالم الحلويات</div>
     </div>
-  </header>
+
+    <div class="header-actions">
+      <a href="#menu" class="header-action">قائمة المنيو</a>
+      <a href="#contact" class="header-action header-action-gold">اتصل بنا</a>
+    </div>
+
+    <div class="header-note">أهلاً بيكم في عالم الحلويات</div>
+
+  </div>
+</header>
+
 
   <section class="hero">
     <div class="hero-content">
