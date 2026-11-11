@@ -1,0 +1,784 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#681b2b">
+  <meta name="description" content="حلويات العمدة - اكتشف أشهى الحلويات الشرقية والغربية.">
+
+  <title>حلويات العمدة | الطعم اللي يجمعنا</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #fffaf0;
+      --cream-dark: #f5ead8;
+      --burgundy: #681b2b;
+      --burgundy-light: #8c3042;
+      --gold: #c49a52;
+      --text: #392b26;
+      --muted: #85766c;
+      --white: #ffffff;
+      --shadow: 0 12px 35px rgba(75, 37, 27, .09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar {
+      background: var(--burgundy);
+      color: white;
+      text-align: center;
+      padding: 9px 12px;
+      font-size: 13px;
+    }
+
+    header {
+      background: rgba(255,250,240,.96);
+      border-bottom: 1px solid #eadcc7;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--burgundy);
+      color: var(--gold);
+      border: 2px solid var(--gold);
+      display: grid;
+      place-items: center;
+      font-size: 25px;
+    }
+
+    .brand-name {
+      color: var(--burgundy);
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    .brand-subtitle {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .header-note {
+      color: var(--burgundy);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .hero {
+      min-height: 390px;
+      padding: 65px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(196,154,82,.17), transparent 25%),
+        radial-gradient(circle at 85% 80%, rgba(104,27,43,.09), transparent 25%),
+        linear-gradient(135deg, #fff8e9, #f4e5ce);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "✦";
+      position: absolute;
+      color: var(--gold);
+      font-size: 70px;
+      opacity: .25;
+    }
+
+    .hero::before {
+      top: 25px;
+      right: 8%;
+    }
+
+    .hero::after {
+      bottom: 20px;
+      left: 8%;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      color: var(--burgundy);
+      font-size: clamp(35px, 6vw, 62px);
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      color: #78675a;
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    .hero-button {
+      display: inline-block;
+      background: var(--burgundy);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 800;
+      border: 1px solid var(--gold);
+      transition: .25s;
+    }
+
+    .hero-button:hover {
+      background: var(--burgundy-light);
+      transform: translateY(-3px);
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 22px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-heading small {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .section-heading h2 {
+      color: var(--burgundy);
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .category-list {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 5px 2px 18px;
+      margin-bottom: 25px;
+      scrollbar-width: thin;
+    }
+
+    .category-button {
+      flex-shrink: 0;
+      border: 1px solid #e3d1b7;
+      background: white;
+      color: var(--burgundy);
+      padding: 9px 20px;
+      border-radius: 25px;
+      font-family: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .category-button.active,
+    .category-button:hover {
+      background: var(--burgundy);
+      color: white;
+      border-color: var(--gold);
+    }
+
+    .menu-message {
+      text-align: center;
+      padding: 25px;
+      color: var(--muted);
+      background: white;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 23px;
+    }
+
+    .menu-card {
+      background: white;
+      border: 1px solid #eee2d0;
+      border-radius: 17px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: .25s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 17px 38px rgba(75,37,27,.14);
+    }
+
+    .item-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background: var(--cream-dark);
+    }
+
+    .image-placeholder {
+      height: 220px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #f7e8d0, #fff8ed);
+      color: var(--gold);
+      font-size: 55px;
+    }
+
+    .item-content {
+      padding: 17px;
+    }
+
+    .item-content h3 {
+      color: var(--burgundy);
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .item-price {
+      color: #9b7132;
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .item-weights {
+      margin-top: 13px;
+      border-top: 1px solid #f0e5d5;
+      padding-top: 10px;
+    }
+
+    .item-weights-title {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+
+    .weight-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 4px 0;
+      font-size: 13px;
+    }
+
+    .weight-row strong {
+      color: var(--burgundy);
+    }
+
+    .promo-section {
+      background: #f5ead8;
+      padding: 55px 22px;
+    }
+
+    .promo-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .promo-card {
+      background: white;
+      border-radius: 18px;
+      padding: 27px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border: 1px solid #e8d7bd;
+      box-shadow: var(--shadow);
+    }
+
+    .promo-icon {
+      width: 75px;
+      height: 75px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: #f8eddd;
+      font-size: 38px;
+    }
+
+    .promo-info {
+      flex: 1;
+    }
+
+    .promo-info h3 {
+      color: var(--burgundy);
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    .promo-info p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 4px 0 12px;
+    }
+
+    .promo-link {
+      display: inline-block;
+      background: var(--burgundy);
+      color: white;
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    footer {
+      background: var(--burgundy);
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    footer strong {
+      color: var(--gold);
+    }
+
+    @media (max-width: 850px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 580px) {
+      .header-inner {
+        padding: 12px 15px;
+      }
+
+      .header-note {
+        display: none;
+      }
+
+      .hero {
+        min-height: 320px;
+        padding: 45px 18px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .section {
+        padding: 40px 14px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+      }
+
+      .item-image,
+      .image-placeholder {
+        height: 230px;
+      }
+
+      .promo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .promo-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    حلويات العمدة — حلاوة الطعم في كل مناسبة
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-mark">✦</div>
+        <div>
+          <div class="brand-name">حلويات العمدة</div>
+          <div class="brand-subtitle">أصالة الطعم... وحلاوة اللمة</div>
+        </div>
+      </div>
+
+      <div class="header-note">أهلاً بيكم في عالم الحلويات</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-label">WELCOME TO ALOMDA SWEETS</div>
+      <h1>حلاوة تجمعنا</h1>
+      <p>
+        اكتشفوا تشكيلة حلويات العمدة، من الحلويات الشرقية
+        لأجمل الأصناف اللي بتحلّي كل مناسبة.
+      </p>
+      <a href="#menu" class="hero-button">اكتشف المنيو</a>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" id="menu">
+
+      <div class="section-heading">
+        <small>OUR SWEET MENU</small>
+        <h2>منيو حلويات العمدة</h2>
+        <p>اختاروا القسم واستمتعوا بتصفح أصنافنا</p>
+      </div>
+
+      <div id="categoryList" class="category-list"></div>
+
+      <div id="menuMessage" class="menu-message">
+        جارٍ تحميل المنيو...
+      </div>
+
+      <div id="menuGrid" class="menu-grid"></div>
+
+    </section>
+
+    <section class="promo-section">
+      <div class="promo-inner">
+
+        <div class="section-heading">
+          <small>DISCOVER MORE</small>
+          <h2>جرّب باقي مطاعم العمدة</h2>
+          <p>لسه في اختيارات كتير مستنياكم!</p>
+        </div>
+
+        <div class="promo-grid">
+
+          <div class="promo-card">
+            <div class="promo-icon">🍽️</div>
+            <div class="promo-info">
+              <h3>مطعم العمدة</h3>
+              <p>اكتشفوا منيو المطعم واطلبوا أشهى الوجبات.</p>
+              <a class="promo-link"
+                 href="https://7oda96.github.io/alomda-restaurants/"
+                 target="_blank" rel="noopener">
+                اطلب الآن
+              </a>
+            </div>
+          </div>
+
+          <div class="promo-card">
+            <div class="promo-icon">🐟</div>
+            <div class="promo-info">
+              <h3>مطعم أسماك العمدة</h3>
+              <p>استمتعوا بأشهى المأكولات البحرية.</p>
+              <a class="promo-link"
+                 href="https://7oda96.github.io/Omda-fish/"
+                 target="_blank" rel="noopener">
+                اطلب الآن
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>حلويات العمدة</strong>
+    <div>الطعم الأصيل... واللمة الحلوة</div>
+   <div style="font-size:12px; margin-top:8px; opacity:.8">
+  جميع الحقوق محفوظة © حلويات العمدة
+</div>
+
+<div style="font-size:12px; margin-top:5px; color:#e4c58e">
+  بواسطة محمود سمير
+</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    const SUPABASE_URL =
+      'https://gbetyfaobnwoqajjdcls.supabase.co';
+
+    const SUPABASE_KEY =
+      'sb_publishable__sT-DJTstMDdYx2eMi0A_g_AyLfj92n';
+
+    const db = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+
+    let menuData = [];
+    let selectedCategory = 'الكل';
+
+    const menuGrid = document.getElementById('menuGrid');
+    const categoryList = document.getElementById('categoryList');
+    const menuMessage = document.getElementById('menuMessage');
+
+    function escapeHTML(value) {
+      return String(value ?? '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      })[char]);
+    }
+
+    function formatPrice(value) {
+      return Number(value).toFixed(2) + ' ريال';
+    }
+
+    function getItemPrice(item) {
+      if (
+        item.min_price !== null &&
+        item.max_price !== null &&
+        Number(item.min_price) !== Number(item.max_price)
+      ) {
+        return 'من ' + formatPrice(item.min_price) +
+          ' إلى ' + formatPrice(item.max_price);
+      }
+
+      return formatPrice(item.price);
+    }
+
+    function getActiveWeights(item) {
+      if (!Array.isArray(item.weight_options)) {
+        return [];
+      }
+
+      return item.weight_options.filter(weight =>
+        weight &&
+        weight.is_active === true
+      );
+    }
+
+    function renderCategories() {
+      const categories = [
+        'الكل',
+        ...new Set(menuData.map(item => item.category).filter(Boolean))
+      ];
+
+      categoryList.replaceChildren();
+
+      categories.forEach(category => {
+        const button = document.createElement('button');
+
+        button.className =
+          'category-button' +
+          (category === selectedCategory ? ' active' : '');
+
+        button.textContent = category;
+
+        button.addEventListener('click', () => {
+          selectedCategory = category;
+          renderCategories();
+          renderItems();
+        });
+
+        categoryList.appendChild(button);
+      });
+    }
+
+    function renderItems() {
+      menuGrid.replaceChildren();
+
+      const items = selectedCategory === 'الكل'
+        ? menuData
+        : menuData.filter(item =>
+            item.category === selectedCategory
+          );
+
+      if (!items.length) {
+        menuMessage.textContent = 'لا توجد أصناف في هذا القسم حاليًا.';
+        menuMessage.style.display = 'block';
+        return;
+      }
+
+      menuMessage.style.display = 'none';
+
+      items.forEach(item => {
+        const card = document.createElement('article');
+        card.className = 'menu-card';
+
+        let imageHTML = '';
+
+        if (item.image_url) {
+          const image = document.createElement('img');
+          image.className = 'item-image';
+          image.alt = item.name || 'صنف من حلويات العمدة';
+          image.loading = 'lazy';
+          image.src = item.image_url;
+
+          image.addEventListener('error', () => {
+            const placeholder = document.createElement('div');
+            placeholder.className = 'image-placeholder';
+            placeholder.textContent = '✦';
+            image.replaceWith(placeholder);
+          });
+
+          card.appendChild(image);
+        } else {
+          const placeholder = document.createElement('div');
+          placeholder.className = 'image-placeholder';
+          placeholder.textContent = '✦';
+          card.appendChild(placeholder);
+        }
+
+        const content = document.createElement('div');
+        content.className = 'item-content';
+
+        const name = document.createElement('h3');
+        name.textContent = item.name || '';
+
+        const price = document.createElement('div');
+        price.className = 'item-price';
+        price.textContent = getItemPrice(item);
+
+        content.append(name, price);
+
+        const weights = getActiveWeights(item);
+
+        if (weights.length) {
+          const weightBox = document.createElement('div');
+          weightBox.className = 'item-weights';
+
+          const heading = document.createElement('div');
+          heading.className = 'item-weights-title';
+          heading.textContent = 'الأوزان المتاحة';
+
+          weightBox.appendChild(heading);
+
+          weights.forEach(weight => {
+            const row = document.createElement('div');
+            row.className = 'weight-row';
+
+            const weightName = document.createElement('span');
+            weightName.textContent = weight.name || '';
+
+            const weightPrice = document.createElement('strong');
+            weightPrice.textContent = formatPrice(weight.price);
+
+            row.append(weightName, weightPrice);
+            weightBox.appendChild(row);
+          });
+
+          content.appendChild(weightBox);
+        }
+
+        card.appendChild(content);
+        menuGrid.appendChild(card);
+      });
+    }
+
+    async function loadMenu() {
+      menuMessage.style.display = 'block';
+      menuMessage.textContent = 'جارٍ تحميل أصناف حلويات العمدة...';
+
+      menuGrid.replaceChildren();
+      categoryList.replaceChildren();
+
+      try {
+        const { data, error } = await db
+          .from('menu_items')
+          .select(
+            'id, name, category, price, min_price, max_price, image_url, weight_options, sort_order'
+          )
+          .eq('restaurant', 'sweets')
+          .eq('is_available', true)
+          .order('sort_order', { ascending: true });
+
+        if (error) {
+          throw error;
+        }
+
+        menuData = data || [];
+
+        if (!menuData.length) {
+          menuMessage.textContent =
+            'لا توجد أصناف مفعّلة للعرض حاليًا.';
+          return;
+        }
+
+        selectedCategory = 'الكل';
+
+        renderCategories();
+        renderItems();
+
+      } catch (error) {
+        console.error('خطأ تحميل المنيو:', error);
+
+        menuMessage.textContent =
+          'تعذر تحميل المنيو. برجاء التأكد من صلاحيات القراءة والاتصال بقاعدة البيانات.';
+      }
+    }
+
+    loadMenu();
+  </script>
+
+</body>
+</html>
