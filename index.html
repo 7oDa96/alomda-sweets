@@ -72,10 +72,17 @@
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
 
     .brand-mark {
       width: 54px;
@@ -169,18 +176,14 @@
 
 
     .hero h1 {
-      color: var(--burgundy);
-      font-size: clamp(35px, 6vw, 62px);
-      font-weight: 900;
-      line-height: 1.35;
-      margin-bottom: 15px;
-    }
+  color: #f3c969;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.65);
+}
 
     .hero p {
-      color: #78675a;
-      font-size: 17px;
-      margin-bottom: 25px;
-    }
+  color: #ffe6ad;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
+}
 
     .hero-button {
       display: inline-block;
@@ -477,17 +480,17 @@
 <header>
   <div class="header-inner">
 
-    <div class="brand">
-      <div>
-        <div class="brand-name">حلويات العمدة</div>
-        <div class="brand-subtitle">أصالة الطعم... وحلاوة اللمة</div>
-      </div>
-    </div>
+   <div class="brand">
+  <img src="logo.jpg" alt="لوجو حلويات العمدة" class="brand-logo">
+  <div>
+    <div class="brand-name">حلويات العمدة</div>
+    <div class="brand-subtitle">أصالة الطعم... وحلاوة اللمة</div>
+  </div>
+</div>
 
     <div class="header-actions">
-      <a href="#menu" class="header-action">قائمة المنيو</a>
-      <a href="#contact" class="header-action header-action-gold">اتصل بنا</a>
-    </div>
+  <a href="#contact" class="header-action header-action-gold">اتصل بنا</a>
+</div>
 
     <div class="header-note">أهلاً بيكم في عالم الحلويات</div>
 
@@ -572,7 +575,7 @@
   </main>
 
   
-<footer>
+<footer id="contact">
   <strong>حلويات العمدة</strong>
   <div>الطعم الأصيل... واللمة الحلوة</div>
 
