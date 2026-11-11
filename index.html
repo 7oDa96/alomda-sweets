@@ -631,41 +631,43 @@
       );
     }
 
-    function renderCategories() {
-      const categories = [
-        'الكل',
-        ...new Set(menuData.map(item => item.category).filter(Boolean))
-      ];
+  
+function renderCategories() {
+  const categories = [
+    ...new Set(menuData.map(item => item.category).filter(Boolean))
+  ];
 
-      categoryList.replaceChildren();
+  if (!categories.includes(selectedCategory)) {
+    selectedCategory = categories[0] || '';
+  }
 
-      categories.forEach(category => {
-        const button = document.createElement('button');
+  categoryList.replaceChildren();
 
-        button.className =
-          'category-button' +
-          (category === selectedCategory ? ' active' : '');
+  categories.forEach(category => {
+    const button = document.createElement('button');
 
-        button.textContent = category;
+    button.className =
+      'category-button' +
+      (category === selectedCategory ? ' active' : '');
 
-        button.addEventListener('click', () => {
-          selectedCategory = category;
-          renderCategories();
-          renderItems();
-        });
+    button.textContent = category;
 
-        categoryList.appendChild(button);
-      });
-    }
+    button.addEventListener('click', () => {
+      selectedCategory = category;
+      renderCategories();
+      renderItems();
+    });
+
+    categoryList.appendChild(button);
+  });
+}
 
     function renderItems() {
       menuGrid.replaceChildren();
 
-      const items = selectedCategory === 'الكل'
-        ? menuData
-        : menuData.filter(item =>
-            item.category === selectedCategory
-          );
+     const items = menuData.filter(item =>
+  item.category === selectedCategory
+);
 
       if (!items.length) {
         menuMessage.textContent = 'لا توجد أصناف في هذا القسم حاليًا.';
