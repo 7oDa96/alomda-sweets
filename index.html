@@ -142,11 +142,21 @@
     }
 
     .hero-content {
-      max-width: 760px;
-      position: relative;
-      z-index: 1;
-    }
+  max-width: 760px;
+  position: relative;
+  z-index: 1;
+}
 
+.hero-logo {
+  display: block;
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+  margin: 0 auto 22px;
+  filter: drop-shadow(0 5px 10px rgba(80, 40, 20, 0.15));
+}
+
+.hero-label {
     .hero-label {
       color: var(--gold);
       font-weight: 800;
@@ -462,11 +472,10 @@
   <header>
     <div class="header-inner">
       <div class="brand">
-        <div class="brand-mark">✦</div>
-        <div>
-          <div class="brand-name">حلويات العمدة</div>
-          <div class="brand-subtitle">أصالة الطعم... وحلاوة اللمة</div>
-        </div>
+       
+      <div>
+        <div class="brand-name">حلويات العمدة</div>
+        <div class="brand-subtitle">أصالة الطعم... وحلاوة اللمة</div>
       </div>
 
       <div class="header-note">أهلاً بيكم في عالم الحلويات</div>
@@ -475,6 +484,8 @@
 
   <section class="hero">
     <div class="hero-content">
+      <img src="logo.png" alt="لوجو حلويات العمدة" class="hero-logo">
+
       <div class="hero-label">WELCOME TO ALOMDA SWEETS</div>
       <h1>حلاوة تجمعنا</h1>
       <p>
@@ -484,6 +495,7 @@
       <a href="#menu" class="hero-button">اكتشف المنيو</a>
     </div>
   </section>
+
 
   <main>
     <section class="section" id="menu">
